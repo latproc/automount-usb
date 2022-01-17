@@ -73,6 +73,7 @@ do_mount()
         rmdir "${MOUNT_POINT}"
         exit 1
     else
+        echo "TOGGLE P_USB; PROPERTY P_USB device \"${MOUNT_POINT}\"" | timeout 1 /opt/latproc/iod/iosh
         # Track the mounted drives
         echo "${MOUNT_POINT}:${DEVBASE}" | cat >> "/var/log/usb-mount.track" 
     fi
